@@ -1,0 +1,21 @@
+After adding an instance
+--------------------------
+@relation TestInstances
+
+@attribute 'Fever Period' numeric
+@attribute 'Current Temperature (C)' numeric
+@attribute 'Severe Headache' {yes,no}
+@attribute 'Eye Pain' {no,yes}
+@attribute 'Joint Muscle Ache' {yes,no}
+@attribute 'Metallic Taste In Mouth' {no,yes}
+@attribute 'Loss Of Appetite' {no,yes}
+@attribute 'Abdominal Pain' {no,yes}
+@attribute 'Nausea & Vomiting' {yes,no}
+@attribute Diarrhoea {no,yes}
+@attribute 'Dengue Test Result' {yes,no}
+
+@data
+10,40,yes,yes,yes,yes,no,no,yes,yes,yes
+--------------------------
+Index of predicted class label: 0.0, which corresponds to class: Dengue Test Result
+prediction, yes

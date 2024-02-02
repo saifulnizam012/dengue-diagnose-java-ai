@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<title>The Bois: Diagnosing Dengue Infection</title>
+	<style type="text/css">
+.col-xs-updated {
+	width: 100% !important;
+	padding: 5px;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	width: 100%;
+}
+
+.result-color {
+	font-weight: bold;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #fff;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+	}
+}
+</style>
+</h:head>
+<h:body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-xs-updated">
+				<h:form id="userForm" styleClass="form-horizontal">
+					<div class="form-group">
+						<br /> <br />
+						<div class="column">
+							<h:outputLabel value="Fever Period (Days)"
+								styleClass="control-label col-sm-2" />
+							<div class="row">
+								<div class="col-lg-2 text-center">
+									<p:inputText id="feverPeriodVal"
+										value="#{studentBean.feverPeriod}" styleClass="col-xs-updated"
+										size="3" />
+								</div>
+								<div class="col-lg-9">
+									<p:slider for="feverPeriodVal" minValue="0" maxValue="50" />
+								</div>
+							</div>
+							<br />
+							<h:outputLabel value="Severe Headache"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.severeHeadache}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Joint Muscle Ache"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.jointMuscleAche}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Loss Of Appetite"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.lossOfAppetite}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Nausea Vomitting"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.nauseaVomiting}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<div class="col-lg-12">
+								<table>
+									<tr>
+										<td rowspan="2"><h:outputLabel value="Indicator:"
+												styleClass="control-label col-sm-2 result-color" /></td>
+										<td>Yes: Positive</td>
+									</tr>
+									<tr>
+										<td>No: Negative</td>
+									</tr>
+								</table>
+								<br />
+								<table>
+									<tr>
+										<th><h:outputLabel value="Dengue Test Result:"
+												styleClass="control-label col-sm-2 result-color" /></th>
+										<th><h:outputLabel
+												value="#{studentBean.dengueTestResult}"
+												styleClass="control-label col-sm-2" /></th>
+									</tr>
+									<tr>
+										<td><h:outputLabel value="Result Accuracy:"
+												styleClass="control-label col-sm-2 result-color" /></td>
+										<td><h:outputLabel value="#{studentBean.rate}"
+												styleClass="control-label col-sm-2" /></td>
+									</tr>
+								</table>
+								<br /> <br />
+							</div>
+						</div>
+						<div class="column">
+							<h:outputLabel value="Current Temperature (C)"
+								styleClass="control-label col-sm-2" />
+							<div class="row">
+								<div class="col-lg-2 text-center">
+									<p:inputText id="currentTemperatureVal"
+										value="#{studentBean.currentTemperature}"
+										styleClass="col-xs-updated" size="3" />
+								</div>
+								<div class="col-lg-9">
+									<p:slider for="currentTemperatureVal" minValue="0"
+										maxValue="50" />
+								</div>
+							</div>
+							<br />
+							<h:outputLabel value="Eye Pain"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.eyePain}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Metallic Taste In Mouth"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.metallicTasteInMouth}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Abdominal Pain"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.abdominalPain}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<h:outputLabel value="Diarrhoea"
+								styleClass="control-label col-sm-2" />
+							<div class="col-lg-12">
+								<h:selectOneMenu value="#{studentBean.diarrhoea}"
+									styleClass="col-xs-updated">
+									<f:selectItem itemLabel="Yes" itemValue="yes" />
+									<f:selectItem itemLabel="No" itemValue="no" />
+								</h:selectOneMenu>
+							</div>
+							<br />
+							<div class="col-lg-12">
+								<h:commandButton value="Evaluate"
+									action="#{studentBean.DengueActualARFF}"
+									styleClass="btn btn-secondary btn-lg btn-block" />
+								<h:commandButton value="Train Dengue"
+									action="#{studentBean.DengueTrain}"
+									styleClass="btn btn-info btn-lg btn-block" />
+								<h:commandButton value="Test Dengue"
+									action="#{studentBean.DengueTest}"
+									styleClass="btn btn-success btn-lg btn-block" />
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>
